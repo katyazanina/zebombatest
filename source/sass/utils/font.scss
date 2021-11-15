@@ -1,0 +1,27 @@
+@font-face {
+    font-family: 'Cambria';
+    src: url('../fonts/Cambria.woff');
+    src: local('Cambria'),
+        url('../fonts/Cambria.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Cambria';
+    src: url('../fonts/Cambria-Bold.woff');
+    src: local('Cambria Bold'), local('Cambria-Bold'),
+        url('../fonts/Cambria-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Astamper';
+    src: url('../fonts/astamper.ttf');
+    src: local('Astamper'),
+        local('A-stamper'),
+        url('../fonts/astamper.ttf') format('ttf');
+    font-weight: bold;
+    font-style: normal;
+}

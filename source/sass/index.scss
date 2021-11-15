@@ -1,0 +1,482 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Cambria', serif;
+}
+
+.visually-hidden {
+    position: absolute;
+    overflow: hidden;
+    margin: -1px;
+    width: 1px;
+    height: 1px;
+    clip: rect(0 0 0 0);
+}
+
+.gamewindow {
+    background-image: url("../img/bg.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 980px;
+    height: 630px;
+    position: absolute;
+    display: flex;
+
+    &__furniture {
+        position: absolute;
+        width: 980px;
+        height: 600px;
+
+        background-repeat: no-repeat;
+        background-size: 980px;
+        background-image: url("../img/furniture.png")
+    }
+
+    &__text {
+        display: inline-block;
+        position: absolute;
+        font-family: 'Astamper',
+            serif;
+        font-size: 14px;
+        font-weight: bold;
+        line-height: 0.9;
+        text-align: center;
+        transform: matrix(0.72699027316319, -0.4229733726024, 1.21570020235108, 0.66822240031415, 0, 0);
+
+        &-start {
+            color: rgb(198, 8, 2);
+            left: 433.187px;
+            top: 521.543px;
+        }
+
+        &-end {
+            color: rgb(3, 97, 145);
+            left: 876.544px;
+            top: 179.408px;
+        }
+    }
+
+    &__path {
+        width: 899px;
+        height: 524px;
+        margin-left: auto;
+        top: 20px;
+        position: relative;
+        background-image: url("../img/path.png");
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+
+}
+
+// .dot-wrap {
+//     position: absolute;
+// }
+
+.dot {
+    display: block;
+    position: absolute;
+
+    &--grey {
+        width: 21px;
+        height: 15px;
+        background-size: 21px 15px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-image: url("../img/dot-grey.png");
+    }
+
+    &--start {
+        width: 36px;
+        height: 26px;
+        background-size: 36px 26px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-image: url("../img/red-dot.png");
+    }
+
+    &--red {
+        width: 25px;
+        height: 17px;
+        background-size: 25px 17px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-image: url("../img/red-dot-c.png");
+    }
+}
+
+
+
+.girl {
+    position: absolute;
+    left: 434px;
+    top: 438px;
+    width: 21px;
+    height: 69px;
+    z-index: 5;
+    transition: all 0.5s linear;
+}
+
+.panel {
+    display: flex;
+    justify-content: space-between;
+    margin-top: auto;
+    height: 65px;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    margin-left: 5px;
+    z-index: 5;
+    flex-grow: 1;
+}
+
+.gamer {
+    width: 535px;
+    background-image: url("../img/friend.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    justify-content: space-between;
+    margin-left: -5px;
+    margin-right: -5px;
+
+    &__icon {
+        width: 50px;
+        height: 50px;
+        background-image: url("../img/icon-bg.png");
+        background-size: 50px 50px;
+        background-position: center;
+        background-repeat: no-repeat;
+        position: relative;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        margin-left: 5px;
+        margin-right: 5px;
+
+        & img {
+            margin-bottom: 2px;
+        }
+
+        &:hover .gamer__add {
+            opacity: 1;
+        }
+    }
+
+    &__add {
+        cursor: pointer;
+        border: none;
+        background-color: transparent;
+        position: absolute;
+        top: -5px;
+        right: -5px;
+        width: 23px;
+        height: 22px;
+        background-image: url("../img/add.png");
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+
+        opacity: 0;
+        transition: all 0.5s ease;
+    }
+}
+
+.slider {
+
+    &__container {
+        overflow: hidden;
+        display: flex;
+    }
+
+    &__wrap {
+        display: flex;
+        align-items: center;
+    }
+
+    &__btn {
+        cursor: pointer;
+        border: none;
+        background-color: transparent;
+        background-image: url("../img/arrow.png");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        margin: 0 8px;
+        will-change: transform;
+        transition: transform 0.5s ease;
+        backface-visibility: hidden;
+    }
+
+    &__prev {
+        &:disabled {
+            opacity: 0.5;
+        }
+
+        &:hover {
+            transform: scale(0.8);
+        }
+    }
+
+    &__next {
+        &:disabled {
+            opacity: 0.5;
+        }
+
+        transform: rotate(180deg);
+
+        &:hover {
+            transform: rotate(180deg) scale(0.8);
+        }
+    }
+}
+
+.button {
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 65px;
+    will-change: transform;
+    transition: transform 0.5s ease;
+    backface-visibility: hidden;
+
+
+    &:hover {
+        transform: scale(0.95);
+    }
+
+    &--chat {
+        background-image: url("../img/chat.png");
+    }
+
+    &--move {
+        width: 202px;
+        background-image: url("../img/btn-go.png");
+
+        font-size: 33px;
+        font-family: "Cambria";
+        color: rgb(252, 250, 249);
+        line-height: 0.884;
+        text-align: center;
+        text-shadow: 0.5px 0.866px 3px rgba(33, 30, 31, 0.004);
+        text-transform: uppercase;
+    }
+
+    &--letter {
+        background-image: url("../img/letter.png");
+    }
+
+    &--rate {
+        background-image: url("../img/rate.png");
+    }
+}
+
+.overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+
+    transition: all 0.5s ease;
+
+    &.hide {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    &.show {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+.rating {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 101;
+    width: 523px;
+    height: 455px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url("../img/modal.png");
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    &__title {
+        position: absolute;
+        top: -10px;
+        width: 264px;
+        height: 33px;
+        font-size: 26px;
+        text-align: center;
+        vertical-align: middle;
+        line-height: 26px;
+        color: #fff;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-image: url("../img/title.png");
+    }
+
+    &__wrap {
+        width: 464px;
+        height: 324px;
+        padding: 30px;
+        box-sizing: border-box;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-image: url("../img/wrap.png");
+    }
+
+    &__head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: #fff;
+        box-sizing: border-box;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-image: url("../img/head.png");
+        width: 100%;
+        height: 30px;
+
+    }
+
+    &__items {
+        overflow-y: auto;
+        height: 90%;
+
+        &::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        &::-webkit-scrollbar-track {
+            box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: #007087;
+            outline: 1px solid #007087;
+        }
+
+
+    }
+
+    &__place {
+        width: 70px;
+        text-align: center;
+    }
+
+    &__image {
+        width: 30px;
+    }
+
+    &__name {
+        width: 228px;
+        margin-left: 5px;
+    }
+
+    &__expir {
+        width: 70px;
+    }
+
+    &__line {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: #fff;
+        box-sizing: border-box;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-image: url("../img/line.png");
+        width: 100%;
+        height: 30px;
+        margin-top: 5px;
+
+        &.friend {
+            color: yellow;
+            font-weight: bold;
+        }
+    }
+}
+
+.modal {
+    transition: all 0.5s ease;
+
+    &__btn {
+        border: none;
+        cursor: pointer;
+        background-color: transparent;
+        position: absolute;
+        width: 25px;
+        height: 25px;
+        top: 15px;
+        right: 15px;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-image: url("../img/close.png");
+    }
+
+    &.hide {
+        opacity: 0;
+        pointer-events: none;
+        animation-name: hide;
+        animation-timing-function: ease;
+        animation-duration: 0.5s;
+        animation-fill-mode: forwards;
+
+    }
+
+    &.show {
+        opacity: 1;
+        pointer-events: auto;
+        visibility: visible;
+        animation-name: show;
+        animation-timing-function: ease;
+        animation-duration: 0.5s;
+        animation-fill-mode: forwards;
+    }
+
+}
+
+
+
+@keyframes show {
+    0% {
+        transform: translate(-50%, -50%) scale(0);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+@keyframes hide {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    50% {
+        transform: translate(-50%, -50%) scale(0);
+    }
+
+    100% {
+        visibility: hidden;
+    }
+}
